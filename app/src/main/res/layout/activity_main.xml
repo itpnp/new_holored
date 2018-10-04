@@ -1,0 +1,187 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context=".MainActivity">
+
+        <Button
+            android:id="@+id/buttonUU"
+            style="@android:style/Widget.Button.Inset"
+            android:layout_width="172dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buttonStart"
+            android:layout_centerHorizontal="true"
+            android:onClick="onClickUU"
+            android:text="Peraturan Perundangan" />
+
+        <ImageView
+            android:id="@+id/logoPnp"
+            android:layout_width="184dp"
+            android:layout_height="166dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/bckonsorsium"
+            android:theme="@style/Base.TextAppearance.AppCompat" />
+
+        <TextView
+            android:id="@+id/pura"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logoPnp"
+            android:layout_centerHorizontal="true"
+            android:text="Aplikasi Pengujian Hologram Elektronis"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:id="@+id/layoutDevice"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pura"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/chooseDeviceButton"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/pura"
+                android:layout_below="@+id/pura"
+                android:onClick="onClickStart"
+                android:text="Devices"
+                android:textColor="@android:color/holo_blue_light"
+                android:textColorLink="@android:color/holo_blue_light" />
+
+            <TextView
+                android:id="@+id/deviceNames"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_toEndOf="@+id/buttonStart"
+                android:layout_toRightOf="@+id/buttonStart"
+                android:text="PILIH HOLOREADER"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/buttonStart"
+            style="@android:style/Widget.Button.Inset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/pura"
+            android:layout_below="@+id/layoutDevice"
+            android:onClick="onClickStart"
+            android:text="Begin" />
+
+        <!--android:layout_alignParentBottom="true"-->
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/pura"
+            android:layout_below="@+id/buttonUU"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/buttonStop"
+            style="@android:style/Widget.Button.Inset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutDevice"
+            android:layout_centerHorizontal="true"
+            android:onClick="onClickStop"
+            android:text="Stop" />
+
+        <Button
+            android:id="@+id/buttonClear"
+            style="@android:style/Widget.Button.Inset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/pura"
+            android:layout_below="@+id/layoutDevice"
+            android:onClick="onClickClear"
+            android:text="Clear" />
+
+        <ImageView
+            android:id="@+id/borobudur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/candi_borobudur"
+            android:theme="@style/Base.TextAppearance.AppCompat"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/labelDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/borobudur"
+            android:layout_toEndOf="@+id/buttonStart"
+            android:layout_toRightOf="@+id/buttonStart"
+            android:gravity="center"
+            android:text="DESCRIPTION :\nBorobudur Temple of Magelang, Central Java, well known as one of the world 7 wonders, has been Indonesian pride for centuries.  Borobudur Temple is also the biggest Buddhist temple in the world, spread over 15,129 m2 areas with approximately 34.5m in height.
+Borobudur Temple has three levels classified according to Buddhist cosmology. Starting from the base known as Kamadhatu representing the world of desire, then Rupadhatu, representing  the world of forms, and Aruphadatu at the top representing the world of formlessness.  Having 72 Stupas surrounding the central dome with a statue of Buddha in each of them, fine reliefs throughout the walls, Borobudur Temple's structure shows a magnificent blending between the ideas of Indonesian ancestors worship and Buddhist concept of attaining Nirvana.
+Our Hologram illustrates the magnificence of Borobudur Temple. The black side of the statue represents Andesite, the main stone materials used in Borobudur Temple construction. The Hologram also features colorful wireframe pattern and animation in the Stupa and the statue inside, showing the magical grandeur of Borobudur Temple.
+This Hologram also contains authentication feature, using Character Pattern Recognition-based technology which is really difficult to counterfeit. The Hologram can be read using a special device and the verification of the authenticity can be sent to a mobile phone.
+"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="251dp"
+            android:layout_height="115dp"
+            android:layout_alignEnd="@+id/logoPnp"
+            android:layout_below="@+id/textView"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ta"
+                android:layout_width="247dp"
+                android:layout_height="89dp"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/layoutDevice"
+                android:layout_marginEnd="52dp"
+                android:src="@drawable/bea_cukai"
+                android:theme="@style/Base.TextAppearance.AppCompat"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/taDescription"
+                android:layout_width="237dp"
+                android:layout_height="33dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="tes"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+</ScrollView>

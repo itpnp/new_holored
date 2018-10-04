@@ -1,0 +1,141 @@
+void beginListenForData()
+    {
+        final Handler handler = new Handler();
+        stopThread = false;
+        buffer = new byte[1024];
+        Thread thread  = new Thread(new Runnable()
+        {
+            public void run()
+            {
+                while(!Thread.currentThread().isInterrupted() && !stopThread)
+                {
+                    try
+                    {
+                        int byteCount = inputStream.available();
+                        if(byteCount > 0)
+                        {
+                            byte[] rawBytes = new byte[byteCount];
+                            inputStream.read(rawBytes);
+                            final String string=new String(rawBytes,"US-ASCII");
+                            data = data+""+string;
+                            handler.post(new Runnable() {
+                                public void run() {
+                                    if (data.contains("TERBACA")) {
+                                        textView.setText("");
+                                        textView.append("Verified Hologram made by PURA GROUP, INDONESIA");
+                                        imageView.setVisibility(View.VISIBLE);
+                                        labelDescription.setVisibility(View.VISIBLE);
+                                        logoView.setVisibility(View.INVISIBLE);
+                                        taDescription.setVisibility(View.INVISIBLE);
+                                        data = "";
+                                    } else if (data.contains("GAGAL")) {
+                                        textView.setText("");
+                                        textView.append("UNVERIFIED !!");
+                                        imageView.setVisibility(View.INVISIBLE);
+                                        labelDescription.setVisibility(View.INVISIBLE);
+                                        logoView.setVisibility(View.INVISIBLE);
+                                        taDescription.setVisibility(View.INVISIBLE);
+                                        data = "";
+                                    } else if (data.contains("COBALAGI")) {
+                                        textView.setText("");
+                                        textView.append("Please Try Again !");
+                                        imageView.setVisibility(View.INVISIBLE);
+                                        labelDescription.setVisibility(View.INVISIBLE);
+                                        logoView.setVisibility(View.INVISIBLE);
+                                        taDescription.setVisibility(View.INVISIBLE);
+                                        data = "";
+                                    } else if (data.contains("BorBud")) {
+                                        textView.setText("");
+                                        textView.append("Verified Hologram made by PURA GROUP, INDONESIA");
+                                        imageView.setVisibility(View.VISIBLE);
+                                        labelDescription.setVisibility(View.VISIBLE);
+                                        logoView.setVisibility(View.INVISIBLE);
+                                        taDescription.setVisibility(View.INVISIBLE);
+                                        data = "";
+                                    } else if (data.contains("TA2016")) {
+                                        textView.setText("");
+//                                        textView.append("PITA CUKAI TA 2016");
+                                        imageView.setVisibility(View.INVISIBLE);
+                                        labelDescription.setVisibility(View.INVISIBLE);
+                                        logoView.setVisibility(View.VISIBLE);
+                                        taDescription.setVisibility(View.VISIBLE);
+                                        taDescription.setText("       Tahun Anggaran 2016       ");
+                                        taDescription.setBackgroundColor(Color.MAGENTA);
+                                        data = "";
+                                    }else if (data.contains("TA2017")) {
+                                        textView.setText("");
+//                                        textView.append("PITA CUKAI TA 2017");
+                                        imageView.setVisibility(View.INVISIBLE);
+                                        labelDescription.setVisibility(View.INVISIBLE);
+                                        logoView.setVisibility(View.VISIBLE);
+                                        taDescription.setVisibility(View.VISIBLE);
+                                        taDescription.setText("       Tahun Anggaran 2017       ");
+                                        taDescription.setBackgroundColor(Color.GRAY);
+                                        data = "";
+                                    }else if (data.contains("TA2018")) {
+                                        textView.setText("");
+//                                        textView.append("PITA CUKAI TA 2018");
+                                        imageView.setVisibility(View.INVISIBLE);
+                                        labelDescription.setVisibility(View.INVISIBLE);
+                                        logoView.setVisibility(View.VISIBLE);
+                                        taDescription.setVisibility(View.VISIBLE);
+                                        taDescription.setText("       Tahun Anggaran 2018       ");
+                                        taDescription.setBackgroundColor(Color.YELLOW);
+                                        data = "";
+                                    }else if (data.contains("TA2019")) {
+                                        textView.setText("");
+//                                        textView.append("PITA CUKAI TA 2019");
+                                        imageView.setVisibility(View.INVISIBLE);
+                                        labelDescription.setVisibility(View.INVISIBLE);
+                                        logoView.setVisibility(View.VISIBLE);
+                                        taDescription.setVisibility(View.VISIBLE);
+                                        taDescription.setText("       Tahun Anggaran 2019       ");
+                                        taDescription.setBackgroundColor(Color.YELLOW);
+                                        data = "";
+                                    } else if (data.contains("COBALG")) {
+                                        textView.setText("");
+                                        textView.append("Please Try Again !");
+                                        imageView.setVisibility(View.INVISIBLE);
+                                        labelDescription.setVisibility(View.INVISIBLE);
+                                        logoView.setVisibility(View.INVISIBLE);
+                                        taDescription.setVisibility(View.INVISIBLE);
+                                        data = "";
+                                    }
+                                }
+                                });
+                        }
+                    }
+                    catch (IOException ex)
+                    {
+                        stopThread = true;
+                    }
+                }
+            }
+        });
+        thread.start();
+    }
+
+
+<ImageView
+            android:id="@+id/ta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/bea_cukai"
+            android:theme="@style/Base.TextAppearance.AppCompat"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/taDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/ta"
+            android:layout_toEndOf="@+id/buttonStart"
+            android:layout_toRightOf="@+id/buttonStart"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:visibility="gone" />
